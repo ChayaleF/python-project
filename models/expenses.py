@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class Expenses(BaseModel):
     id: int
+    user_id: int
     description: str
-    userId: int
+    amount: float
     expensesDate: datetime
