@@ -38,3 +38,25 @@ def sign_up_check_user(new_user: User):
         raise HTTPException(status_code=401, detail="Name or password is incorrect")
     else:
         return new_user
+
+
+def validate_id(id_value):
+    try:
+        id_value = int(id_value)
+        if id_value > 0:
+            return True,
+        else:
+            return False,
+    except ValueError:
+        return False,
+
+
+import re
+
+
+def validate_username(username):
+    if len(username) < 3 or len(username) > 15:
+        return False,
+    if not re.match("^[A-Za-z][A-Za-z0-9]*$", username):
+        return False,
+    return True,

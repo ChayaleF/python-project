@@ -47,14 +47,14 @@ async def login_user(name: str, password: str):
     """
     try:
         print(name + " " + password)
-        await login(name, password)
+        result= await login(name, password)
     except Exception as e:
         raise e
-    return f"Hello {name}"
+    return result
 
 
 @User_Router.post("/signUp/")
-async def add_user(user: User = Depends(sign_up_check_user)):
+async def add_user(user: User):
     """
     Register a new user.
 
